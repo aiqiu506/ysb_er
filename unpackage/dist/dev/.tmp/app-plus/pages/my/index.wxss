@@ -1,0 +1,102 @@
+.content {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #f2f2f5;
+}
+.content .fliter-content {
+  position: fixed;
+  font-size: 23rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fff;
+  padding: 10rpx 0;
+  border-bottom: 1rpx solid #f2f2f5;
+  z-index: 99;
+}
+.content .fliter-content .fliter-item {
+  border-right: 1rpx solid #f2f2f5;
+  color: #666;
+  text-align: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 10rpx 0;
+  line-height: 1;
+}
+.content .fliter-content .fliter-item .fliter-item-name {
+  display: inline-block;
+}
+.content .fliter-content .fliter-item .fliter-item-icon {
+  display: inline-block;
+  border-top: 2rpx solid;
+  border-right: 2rpx solid;
+  width: 20rpx;
+  height: 20rpx;
+  border-color: #666;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  margin: 10rpx auto auto 20rpx;
+}
+.content .fliter-content :last-child {
+  border-right: 1rpx solid #fff;
+}
+.content .fliter-content .active-fliter-item {
+  color: red;
+}
+.content .fliter-content .active-fliter-item .fliter-item-icon {
+  border-color: red;
+  -webkit-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+.content .list-content {
+  padding-top: 67rpx;
+}
+.content .fliter-dialog {
+  position: fixed;
+  top: 78rpx;
+  width: 100%;
+  background: #fff;
+  max-height: 70%;
+  overflow-y: auto;
+  z-index: 99;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.content .fliter-dialog .fliter-dialog-content {
+  padding: 20rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.content .fliter-dialog .fliter-dialog-content .fliter-dialog-item {
+  color: #666;
+  padding: 10rpx;
+  border-bottom: 1rpx solid #f2f2f5;
+}
+.content .fliter-dialog .fliter-dialog-content :last-child {
+  border-bottom: 1rpx solid #fff;
+}
+.content .fliter-dialog .fliter-dialog-content .active {
+  color: red;
+}
+.content .bg {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+

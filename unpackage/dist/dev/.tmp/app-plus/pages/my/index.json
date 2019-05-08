@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的",
+  "usingComponents": {
+    "n-list": "/components/orderList",
+    "uni-load-more": "/components/uni-load-more"
+  }
+}
