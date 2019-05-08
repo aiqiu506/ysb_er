@@ -1,14 +1,14 @@
 <template>
 	<view class="content">
 		<view class="select-tab" :style="{height: tabHeight+'px'}">
-			<view class="select-tab-item" :style="{width: itemWidth}" v-for="(item,index) in menuList" :key="index" @tap="showMenuClick(index)">
-				<text :style="{color: color}">{{item.title}}</text>
-				<text class="arrows sl-font" :class="down"></text>
+			<view class="select-tab-item" :style="{width: itemWidth}" v-for="(item,index) in menuList" :key="index"  @tap="showMenuClick(index)">
+				<text :style="{color: statusList[index].isActive?'#1296DB':'#666666'}">{{statusList[index].txt}}</text>
+				<text class="arrows iconfont" :class="statusList[index].isActive?up:down"> </text>
 			</view>
 		</view>
-		<popup-layer ref="popupRef" :direction="'bottom'" @close="close" :isTransNav="false" :navHeight="navHeight"
+		<popup-layer ref="popupRef" :direction="'bottom'" @close="close" :isTransNav="false"  :navHeight="navHeight"
 		 :tabHeight="tabHeight">
-			<sl-filter-view :themeColor="themeColor" :menuList="menuListTemp" ref="slFilterView" @confirm="filterResult"></sl-filter-view>
+			<sl-filter-view :themeColor="themeColor" :menuList="menuListTemp" ref="slFilterView" @changeTxt="chTxt" @confirm="filterResult"></sl-filter-view>
 		</popup-layer>
 	</view>
 
@@ -47,7 +47,7 @@
 					let item = arr[i];
 					for (let j = 0; j < item.detailList.length; j++) {
 						let d_item = item.detailList[j];
-						if (j == 0) {
+						if (d_item.selected == true) {
 							d_item.isSelected = true
 						} else {
 							d_item.isSelected = false
@@ -57,28 +57,20 @@
 				return arr;
 			}
 		},
-		mounted:function () {
-			let arr = [];
-			for (let i = 0; i < this.menuList.length; i++) {
-				arr.push({
-					isActive: false
-				});
-			}
-			this.statusList = arr;
-		},
 		onReady() {
 			let arr = [];
 			for (let i = 0; i < this.menuList.length; i++) {
 				arr.push({
-					isActive: false
+					isActive: false,
+					txt:this.menuList[i].title
 				});
 			}
 			this.statusList = arr;
 		},
 		data() {
 			return {
-				down: 'sl-down',
-				up: 'sl-up',
+				down: 'icon-down',
+				up:'icon-up',
 				navHeight: 0,
 				tabHeight: 40,
 				statusList: []
@@ -112,14 +104,16 @@
 				for (let i = 0; i < this.statusList.length; i++) {
 					this.statusList[i].isActive = false;
 				}
+			},
+			chTxt(ind,txt){
+				this.statusList[ind].txt=txt;
 			}
 		}
 	}
 </script>
 
 <style>
-	@import 'iconfont/iconfont.css';
-
+	@import 'icon.css';
 	.select-tab {
 		border-bottom: #F7F7F7 1px solid;
 		display: flex;
@@ -138,5 +132,8 @@
 	.select-tab .select-tab-item text {
 		color: #666666;
 		font-size: 13px;
+	}
+	.select-tab .select-tab-item .icon-up{
+		color:#1296DB;
 	}
 </style>

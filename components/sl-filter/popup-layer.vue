@@ -20,7 +20,7 @@
 			},
 			isTransNav: {
 				type: Boolean,
-				default: false
+				default: true
 			},
 			navHeight: {
 				type: Number,
@@ -57,7 +57,7 @@
 					'left': 'right:0px;height:100%;',
 					'right': 'left:0px;height:100%;',
 				};
-				return positionValue[this.direction] + this._translate;
+				return positionValue[this.direction] ;
 			}
 		},
 		methods: {
@@ -72,7 +72,7 @@
 					}
 
 					_open = null;
-				}, 100)
+				}, 1)
 				let _toggle = setTimeout(() => {
 					this.iftoggle = true;
 					_toggle = null;
@@ -82,7 +82,7 @@
 				if (this.timer !== null || !this.iftoggle) {
 					return;
 				}
-				this.translateValue = - this.tabHeight;
+				// this.translateValue = - this.tabHeight;
 
 				this.timer = setTimeout(() => {
 					this.ifshow = false;

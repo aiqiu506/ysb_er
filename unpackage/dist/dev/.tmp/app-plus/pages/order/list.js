@@ -80,7 +80,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var slFilter = function slFilter() {return __webpack_require__.e(/*! import() | components/sl-filter/sl-filter */ "components/sl-filter/sl-filter").then(__webpack_require__.bind(null, /*! @/components/sl-filter/sl-filter.vue */ "../../../../../../Users/intro/ysb_er/components/sl-filter/sl-filter.vue"));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var slFilter = function slFilter() {return __webpack_require__.e(/*! import() | components/sl-filter/sl-filter */ "components/sl-filter/sl-filter").then(__webpack_require__.bind(null, /*! @/components/sl-filter/sl-filter.vue */ "../../../../../../Users/intro/ysb_er/components/sl-filter/sl-filter.vue"));};var nList = function nList() {return __webpack_require__.e(/*! import() | components/orderList */ "components/orderList").then(__webpack_require__.bind(null, /*! @/components/orderList.vue */ "../../../../../../Users/intro/ysb_er/components/orderList.vue"));};var uniLoadMore = function uniLoadMore() {return __webpack_require__.e(/*! import() | components/uni-load-more */ "components/uni-load-more").then(__webpack_require__.bind(null, /*! @/components/uni-load-more.vue */ "../../../../../../Users/intro/ysb_er/components/uni-load-more.vue"));};var _default =
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -90,12 +100,22 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 {
   components: {
-    slFilter: slFilter },
+    slFilter: slFilter,
+    nList: nList,
+    uniLoadMore: uniLoadMore },
 
   data: function data() {
     return {
       themeColor: '',
       filterResult: '',
+      goUrl: '',
+      bgShow: false, // 背景显示参数
+      loadingType: 2,
+      loadingText: {
+        contentdown: '上拉显示更多',
+        contentrefresh: '正在加载...',
+        contentnomore: '没有更多数据了' },
+
       menuList: [{
         'title': '默认',
         'detailTitle': '请选择订单的状态',
@@ -103,35 +123,43 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         'key': 'status',
         'detailList': [{
           'title': '默认',
-          'value': [2, 3, 4] },
+          'value': [2, 3, 4],
+          'selected': true },
 
         {
           'title': '待支付',
-          'value': 1 },
+          'value': 1,
+          'selected': false },
 
         {
           'title': '匹配中',
-          'value': 2 },
+          'value': 2,
+          'selected': false },
 
         {
           'title': '待开工',
-          'value': 3 },
+          'value': 3,
+          'selected': false },
 
         {
           'title': '工作中',
-          'value': 4 },
+          'value': 4,
+          'selected': false },
 
         {
           'title': '已完成',
-          'value': 7 },
+          'value': 7,
+          'selected': false },
 
         {
           'title': '已取消',
-          'value': -1 },
+          'value': -1,
+          'selected': false },
 
         {
           'title': '异常',
-          'value': 9 }] },
+          'value': 9,
+          'selected': false }] },
 
 
 
@@ -143,19 +171,23 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         'detailTitle': '选择日期',
         'detailList': [{
           'title': '今天',
-          'value': 'day' },
+          'value': 'day',
+          'selected': false },
 
         {
           'title': '近一周',
-          'value': 'week' },
+          'value': 'week',
+          'selected': false },
 
         {
           'title': '近一个月',
-          'value': 'month' },
+          'value': 'month',
+          'selected': true },
 
         {
           'title': '近一年',
-          'value': 'year' }] },
+          'value': 'year',
+          'selected': false }] },
 
 
 
@@ -167,15 +199,18 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         'detailTitle': '请选择类型',
         'detailList': [{
           'title': '不限',
-          'value': 0 },
+          'value': 0,
+          'selected': false },
 
         {
           'title': '小时工',
-          'value': 1 },
+          'value': 1,
+          'selected': true },
 
         {
           'title': '随时工',
-          'value': 2 }] }] };
+          'value': 2,
+          'selected': false }] }] };
 
 
 
@@ -184,13 +219,34 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   },
   onLoad: function onLoad() {
-
+    var loginStatus = this.checkLogin('../order/list', '');
+    if (!loginStatus) {
+      return false;
+    }
+    this.requestData();
   },
   methods: {
+    requestData: function requestData() {var _this = this;
+      uni.request({
+        url: this.apiUrl + '/v1/order/status',
+        method: 'POST',
+        data: {},
+
+
+        header: {
+          Authorization: 'Bearer ' + uni.getStorageSync("token"),
+          'Content-Type': 'application/json; charset=utf-8' },
+
+        success: function success(re) {
+          _this.dataList = re.data.data;
+        } });
+
+    },
     result: function result(val) {
-      console.log('filter_result:' + JSON.stringify(val), " at pages/order/list.vue:109");
+      console.log('filter_result:' + JSON.stringify(val), " at pages/order/list.vue:164");
       this.filterResult = JSON.stringify(val, null, 2);
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
 /***/ }),
 

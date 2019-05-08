@@ -2,23 +2,14 @@
 	<view>
 		<view class="home-section" style="padding: 0px 0px;">
 			<view class="filter-content" v-for="(item, index) in menuList" :key="index" v-if="menuIndex == index">
-				<view v-if="item.isSort">
-					<view class="filter-content-list">
-						<view v-for="(detailItem,idx) in selectDetailList" :key="idx" :class="detailItem.isSelected?'filter-content-list-item-active':'filter-content-list-item-default'"
-						 :style="{'color': detailItem.isSelected?themeColor:'#666666'}" 
-						 @tap="sortTap(idx,selectDetailList,item.key)">
-							<text>{{detailItem.title}}</text>
-						</view>
-					</view>
-				</view>
-				<view v-else>
+				<view >
 					<view class="filter-content-title">
 						<text>{{item.detailTitle}}</text>
 					</view>
 					<view class="filter-content-detail">
 						<text v-for="(detailItem,idx) in selectDetailList" :key="idx" class='filter-content-detail-item-default' 
 						:style="{'background-color':detailItem.isSelected?themeColor:'#ffffff','color':detailItem.isSelected?'#FFFFFF':'#666666'}"
-						 @tap="itemTap(idx,selectDetailList,item.isMutiple,item.key)">
+						 @tap="itemTap(idx,selectDetailList,item.key,detailItem.title,index)">
 							{{detailItem.title}}
 						</text>
 					</view>
@@ -85,26 +76,8 @@
 				this.menuIndex = index;
 				this.selectDetailList = this.menuList[index].detailList
 			},
-			itemTap(index, list, isMutiple, key) {
-				if (isMutiple == true) {
-					list[index].isSelected = !list[index].isSelected;
-					if (index == 0) {
-						this.resetSelected(list, key)
-					} else {
-						list[0].isSelected = false
-						if (list[index].isSelected) {
-							this.selectedObj[key].push(list[index].value);
-						} else {
-							list[index].isSelected = false;
-							var idx = this.selectedObj[key].indexOf(list[index].value);
-							this.selectedObj[key].splice(idx, 1);
-						}
-						this.result = this.selectedObj;
-					}
-				} else {
-					if (index == 0) {
-						this.resetSelected(list, key)
-					} else {
+			itemTap(index, list, key,title,mIndex) {
+						this.$emit("changeTxt",mIndex,title)
 						list[0].isSelected = false
 						this.selectedObj[key] = list[index].value;
 						this.result = this.selectedObj;
@@ -115,8 +88,8 @@
 								list[i].isSelected = false
 							}
 						}
-					}
-				}
+					
+				
 			},
 			resetSelected(list, key) {
 				if (typeof this.result[key] == 'object') {
@@ -131,17 +104,6 @@
 						list[i].isSelected = false;
 					}
 				}
-			},
-			sortTap(index, list, key) {
-				this.result[key] = list[index].value;
-				for (let i = 0; i < list.length; i++) {
-					if (index == i) {
-						list[i].isSelected = true;
-					} else {
-						list[i].isSelected = false;
-					}
-				}
-				this.$emit("confirm", this.result);
 			},
 			sureClick() {
 				this.$emit("confirm", this.result);

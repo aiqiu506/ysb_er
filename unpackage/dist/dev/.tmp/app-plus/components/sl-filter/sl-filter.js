@@ -147,7 +147,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         var item = arr[i];
         for (var j = 0; j < item.detailList.length; j++) {
           var d_item = item.detailList[j];
-          if (j == 0) {
+          if (d_item.selected == true) {
             d_item.isSelected = true;
           } else {
             d_item.isSelected = false;
@@ -157,28 +157,20 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       return arr;
     } },
 
-  mounted: function mounted() {
-    var arr = [];
-    for (var i = 0; i < this.menuList.length; i++) {
-      arr.push({
-        isActive: false });
-
-    }
-    this.statusList = arr;
-  },
   onReady: function onReady() {
     var arr = [];
     for (var i = 0; i < this.menuList.length; i++) {
       arr.push({
-        isActive: false });
+        isActive: false,
+        txt: this.menuList[i].title });
 
     }
     this.statusList = arr;
   },
   data: function data() {
     return {
-      down: 'sl-down',
-      up: 'sl-up',
+      down: 'icon-down',
+      up: 'icon-up',
       navHeight: 0,
       tabHeight: 40,
       statusList: [] };
@@ -212,6 +204,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       for (var i = 0; i < this.statusList.length; i++) {
         this.statusList[i].isActive = false;
       }
+    },
+    chTxt: function chTxt(ind, txt) {
+      this.statusList[ind].txt = txt;
     } } };exports.default = _default2;
 
 /***/ }),

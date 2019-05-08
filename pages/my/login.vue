@@ -102,8 +102,15 @@
 								key: 'userInfo',
 								data: res.data.data.userInfo,
 								success: () => {
-									console.log('save storage success!');
+									uni.setStorage({
+								       key: 'token',
+								       data: res.data.data.userInfo.token
+							        })
 								}
+							})
+							uni.setStorage({
+								key: 'token',
+								data: res.data.data.userInfo.token
 							})
 							this.toMain(this.account)
 						} else {

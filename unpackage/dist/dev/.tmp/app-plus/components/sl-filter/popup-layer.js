@@ -120,7 +120,7 @@ var _default =
 
     isTransNav: {
       type: Boolean,
-      default: false },
+      default: true },
 
     navHeight: {
       type: Number,
@@ -157,7 +157,7 @@ var _default =
         'left': 'right:0px;height:100%;',
         'right': 'left:0px;height:100%;' };
 
-      return positionValue[this.direction] + this._translate;
+      return positionValue[this.direction];
     } },
 
   methods: {
@@ -172,7 +172,7 @@ var _default =
         }
 
         _open = null;
-      }, 100);
+      }, 1);
       var _toggle = setTimeout(function () {
         _this2.iftoggle = true;
         _toggle = null;
@@ -182,7 +182,7 @@ var _default =
       if (this.timer !== null || !this.iftoggle) {
         return;
       }
-      this.translateValue = -this.tabHeight;
+      // this.translateValue = - this.tabHeight;
 
       this.timer = setTimeout(function () {
         _this3.ifshow = false;

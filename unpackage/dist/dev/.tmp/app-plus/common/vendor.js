@@ -49,7 +49,7 @@ var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ "../../..
 _vue.default.config.productionTip = false;
 _vue.default.prototype.$store = _store.default;
 _App.default.mpType = 'app';
-
+_vue.default.prototype.apiUrl = "http://api.grq.gself.top";
 _vue.default.prototype.checkLogin = function (backpage, backtype) {
   var userInfo = uni.getStorageSync('userInfo');
   console.log(userInfo, " at main.js:11");

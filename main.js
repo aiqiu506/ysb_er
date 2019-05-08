@@ -4,7 +4,7 @@ import store from './store'
 Vue.config.productionTip = false
 Vue.prototype.$store = store
 App.mpType = 'app'
-
+Vue.prototype.apiUrl="http://api.grq.gself.top"
 Vue.prototype.checkLogin = function(backpage, backtype){
 	var userInfo  = uni.getStorageSync('userInfo');
 	console.log(userInfo);

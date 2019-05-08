@@ -1140,8 +1140,9 @@ Z([[7],[3,'navHeight']])
 Z([[7],[3,'tabHeight']])
 Z([[4],[[5],[1,'default']]])
 Z(z[2])
+Z(z[2])
 Z(z[3])
-Z([[4],[[5],[[4],[[5],[[5],[1,'^confirm']],[[4],[[5],[[4],[[5],[1,'filterResult']]]]]]]]])
+Z([[4],[[5],[[5],[[4],[[5],[[5],[1,'^changeTxt']],[[4],[[5],[[4],[[5],[1,'chTxt']]]]]]]],[[4],[[5],[[5],[1,'^confirm']],[[4],[[5],[[4],[[5],[1,'filterResult']]]]]]]]])
 Z([3,'slFilterView'])
 Z([[7],[3,'menuListTemp']])
 Z([[7],[3,'themeColor']])
@@ -1249,6 +1250,16 @@ Z([3,'__e'])
 Z([[4],[[5],[[4],[[5],[[5],[1,'^result']],[[4],[[5],[[4],[[5],[1,'result']]]]]]]]])
 Z([[7],[3,'menuList']])
 Z([[7],[3,'themeColor']])
+Z(z[2])
+Z(z[2])
+Z([[4],[[5],[[5],[[4],[[5],[[5],[1,'scrolltolower']],[[4],[[5],[[4],[[5],[[5],[1,'loadMore']],[[4],[[5],[1,'$event']]]]]]]]]],[[4],[[5],[[5],[1,'scroll']],[[4],[[5],[[4],[[5],[[5],[1,'scrollTopFun']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([[7],[3,'scrollTop']])
+Z([3,'width:100%;height:100%;'])
+Z([3,'list-content'])
+Z([[7],[3,'dataList']])
+Z([[7],[3,'goUrl']])
+Z([[7],[3,'loadingText']])
+Z([[7],[3,'loadingType']])
 })(__WXML_GLOBAL__.ops_cached.$gwx_19);return __WXML_GLOBAL__.ops_cached.$gwx_19
 }
 __WXML_GLOBAL__.ops_set.$gwx=z;
@@ -1357,10 +1368,10 @@ var m6=function(e,s,r,gg){
 var z=gz$gwx_7()
 cs.push("./components/sl-filter/sl-filter.wxml:view:1:1")
 var oX=_mz(z,'view',['bind:__l',0,'class',1],[],e,s,gg)
-cs.push("./components/sl-filter/sl-filter.wxml:popup-layer:1:462")
+cs.push("./components/sl-filter/sl-filter.wxml:popup-layer:1:545")
 var lY=_mz(z,'popup-layer',['bind:close',2,'class',1,'data-event-opts',2,'data-ref',3,'direction',4,'isTransNav',5,'navHeight',6,'tabHeight',7,'vueSlots',8],[],e,s,gg)
-cs.push("./components/sl-filter/sl-filter.wxml:sl-filter-view:1:697")
-var aZ=_mz(z,'sl-filter-view',['bind:confirm',11,'class',1,'data-event-opts',2,'data-ref',3,'menuList',4,'themeColor',5],[],e,s,gg)
+cs.push("./components/sl-filter/sl-filter.wxml:sl-filter-view:1:780")
+var aZ=_mz(z,'sl-filter-view',['bind:changeTxt',11,'bind:confirm',1,'class',2,'data-event-opts',3,'data-ref',4,'menuList',5,'themeColor',6],[],e,s,gg)
 cs.pop()
 _(lY,aZ)
 cs.pop()
@@ -1492,6 +1503,23 @@ cs.push("./pages/order/list.wxml:sl-filter:1:38")
 var cOB=_mz(z,'sl-filter',['bind:result',2,'data-event-opts',1,'menuList',2,'themeColor',3],[],e,s,gg)
 cs.pop()
 _(oNB,cOB)
+cs.push("./pages/order/list.wxml:scroll-view:1:180")
+var oPB=_mz(z,'scroll-view',['scrollY',-1,'bindscroll',6,'bindscrolltolower',1,'data-event-opts',2,'scrollTop',3,'style',4],[],e,s,gg)
+cs.push("./pages/order/list.wxml:view:1:411")
+var lQB=_n('view')
+_rz(z,lQB,'class',11,e,s,gg)
+cs.push("./pages/order/list.wxml:n-list:1:438")
+var aRB=_mz(z,'n-list',['list',12,'urls',1],[],e,s,gg)
+cs.pop()
+_(lQB,aRB)
+cs.push("./pages/order/list.wxml:uni-load-more:1:526")
+var tSB=_mz(z,'uni-load-more',['contentText',14,'loadingType',1],[],e,s,gg)
+cs.pop()
+_(lQB,tSB)
+cs.pop()
+_(oPB,lQB)
+cs.pop()
+_(oNB,oPB)
 cs.pop()
 _(r,oNB)
 return r
@@ -1574,7 +1602,7 @@ __wxAppCode__['pages/my/reg.wxml']=$gwx('./pages/my/reg.wxml');
 __wxAppCode__['pages/order/detail.json']={"navigationBarTitleText":"订单详情","usingComponents":{}};
 __wxAppCode__['pages/order/detail.wxml']=$gwx('./pages/order/detail.wxml');
 
-__wxAppCode__['pages/order/list.json']={"navigationBarTitleText":"我的订单","usingComponents":{"sl-filter":"/components/sl-filter/sl-filter"}};
+__wxAppCode__['pages/order/list.json']={"navigationBarTitleText":"我的订单","usingComponents":{"sl-filter":"/components/sl-filter/sl-filter","n-list":"/components/orderList","uni-load-more":"/components/uni-load-more"}};
 __wxAppCode__['pages/order/list.wxml']=$gwx('./pages/order/list.wxml');
 
 
@@ -1793,11 +1821,11 @@ define('common/runtime.js',function(require, module, exports, window, document, 
     /******/
     /******/
     /******/ // mini-css-extract-plugin CSS loading
-    /******/var cssChunks = { "components/msgList": 1, "components/uni-load-more": 1, "components/sl-filter/sl-filter": 1, "components/orderList": 1, "components/m-input": 1, "components/sl-filter/filter-view": 1, "components/sl-filter/popup-layer": 1, "components/m-icon/m-icon": 1 };
+    /******/var cssChunks = { "components/msgList": 1, "components/uni-load-more": 1, "components/orderList": 1, "components/sl-filter/sl-filter": 1, "components/m-input": 1, "components/sl-filter/filter-view": 1, "components/sl-filter/popup-layer": 1, "components/m-icon/m-icon": 1 };
     /******/if (installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
     /******/else if (installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
         /******/promises.push(installedCssChunks[chunkId] = new Promise(function (resolve, reject) {
-          /******/var href = "" + ({ "components/msgList": "components/msgList", "components/uni-load-more": "components/uni-load-more", "components/sl-filter/sl-filter": "components/sl-filter/sl-filter", "components/orderList": "components/orderList", "components/m-input": "components/m-input", "components/sl-filter/filter-view": "components/sl-filter/filter-view", "components/sl-filter/popup-layer": "components/sl-filter/popup-layer", "components/m-icon/m-icon": "components/m-icon/m-icon" }[chunkId] || chunkId) + ".wxss";
+          /******/var href = "" + ({ "components/msgList": "components/msgList", "components/uni-load-more": "components/uni-load-more", "components/orderList": "components/orderList", "components/sl-filter/sl-filter": "components/sl-filter/sl-filter", "components/m-input": "components/m-input", "components/sl-filter/filter-view": "components/sl-filter/filter-view", "components/sl-filter/popup-layer": "components/sl-filter/popup-layer", "components/m-icon/m-icon": "components/m-icon/m-icon" }[chunkId] || chunkId) + ".wxss";
           /******/var fullhref = __webpack_require__.p + href;
           /******/var existingLinkTags = document.getElementsByTagName("link");
           /******/for (var i = 0; i < existingLinkTags.length; i++) {
@@ -2006,7 +2034,7 @@ var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ "../../..
 _vue.default.config.productionTip = false;
 _vue.default.prototype.$store = _store.default;
 _App.default.mpType = 'app';
-
+_vue.default.prototype.apiUrl = "http://api.grq.gself.top";
 _vue.default.prototype.checkLogin = function (backpage, backtype) {
   var userInfo = uni.getStorageSync('userInfo');
   console.log(userInfo, " at main.js:11");
@@ -12039,15 +12067,6 @@ define('components/sl-filter/filter-view.js',function(require, module, exports, 
     //
     //
     //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
     var _default2 =
     {
       data: function data() {
@@ -12097,38 +12116,20 @@ define('components/sl-filter/filter-view.js',function(require, module, exports, 
           this.menuIndex = index;
           this.selectDetailList = this.menuList[index].detailList;
         },
-        itemTap: function itemTap(index, list, isMutiple, key) {
-          if (isMutiple == true) {
-            list[index].isSelected = !list[index].isSelected;
-            if (index == 0) {
-              this.resetSelected(list, key);
+        itemTap: function itemTap(index, list, key, title, mIndex) {
+          this.$emit("changeTxt", mIndex, title);
+          list[0].isSelected = false;
+          this.selectedObj[key] = list[index].value;
+          this.result = this.selectedObj;
+          for (var i = 0; i < list.length; i++) {
+            if (index == i) {
+              list[i].isSelected = true;
             } else {
-              list[0].isSelected = false;
-              if (list[index].isSelected) {
-                this.selectedObj[key].push(list[index].value);
-              } else {
-                list[index].isSelected = false;
-                var idx = this.selectedObj[key].indexOf(list[index].value);
-                this.selectedObj[key].splice(idx, 1);
-              }
-              this.result = this.selectedObj;
-            }
-          } else {
-            if (index == 0) {
-              this.resetSelected(list, key);
-            } else {
-              list[0].isSelected = false;
-              this.selectedObj[key] = list[index].value;
-              this.result = this.selectedObj;
-              for (var i = 0; i < list.length; i++) {
-                if (index == i) {
-                  list[i].isSelected = true;
-                } else {
-                  list[i].isSelected = false;
-                }
-              }
+              list[i].isSelected = false;
             }
           }
+
+
         },
         resetSelected: function resetSelected(list, key) {
           if (typeof this.result[key] == 'object') {
@@ -12143,17 +12144,6 @@ define('components/sl-filter/filter-view.js',function(require, module, exports, 
               list[i].isSelected = false;
             }
           }
-        },
-        sortTap: function sortTap(index, list, key) {
-          this.result[key] = list[index].value;
-          for (var i = 0; i < list.length; i++) {
-            if (index == i) {
-              list[i].isSelected = true;
-            } else {
-              list[i].isSelected = false;
-            }
-          }
-          this.$emit("confirm", this.result);
         },
         sureClick: function sureClick() {
           this.$emit("confirm", this.result);
@@ -12334,7 +12324,7 @@ define('components/sl-filter/popup-layer.js',function(require, module, exports, 
 
         isTransNav: {
           type: Boolean,
-          default: false },
+          default: true },
 
         navHeight: {
           type: Number,
@@ -12371,7 +12361,7 @@ define('components/sl-filter/popup-layer.js',function(require, module, exports, 
             'left': 'right:0px;height:100%;',
             'right': 'left:0px;height:100%;' };
 
-          return positionValue[this.direction] + this._translate;
+          return positionValue[this.direction];
         } },
 
       methods: {
@@ -12386,7 +12376,7 @@ define('components/sl-filter/popup-layer.js',function(require, module, exports, 
             }
 
             _open = null;
-          }, 100);
+          }, 1);
           var _toggle = setTimeout(function () {
             _this2.iftoggle = true;
             _toggle = null;
@@ -12396,7 +12386,7 @@ define('components/sl-filter/popup-layer.js',function(require, module, exports, 
           if (this.timer !== null || !this.iftoggle) {
             return;
           }
-          this.translateValue = -this.tabHeight;
+          // this.translateValue = - this.tabHeight;
 
           this.timer = setTimeout(function () {
             _this3.ifshow = false;
@@ -12611,7 +12601,7 @@ define('components/sl-filter/sl-filter.js',function(require, module, exports, wi
             var item = arr[i];
             for (var j = 0; j < item.detailList.length; j++) {
               var d_item = item.detailList[j];
-              if (j == 0) {
+              if (d_item.selected == true) {
                 d_item.isSelected = true;
               } else {
                 d_item.isSelected = false;
@@ -12621,28 +12611,20 @@ define('components/sl-filter/sl-filter.js',function(require, module, exports, wi
           return arr;
         } },
 
-      mounted: function mounted() {
-        var arr = [];
-        for (var i = 0; i < this.menuList.length; i++) {
-          arr.push({
-            isActive: false });
-
-        }
-        this.statusList = arr;
-      },
       onReady: function onReady() {
         var arr = [];
         for (var i = 0; i < this.menuList.length; i++) {
           arr.push({
-            isActive: false });
+            isActive: false,
+            txt: this.menuList[i].title });
 
         }
         this.statusList = arr;
       },
       data: function data() {
         return {
-          down: 'sl-down',
-          up: 'sl-up',
+          down: 'icon-down',
+          up: 'icon-up',
           navHeight: 0,
           tabHeight: 40,
           statusList: [] };
@@ -12676,6 +12658,9 @@ define('components/sl-filter/sl-filter.js',function(require, module, exports, wi
           for (var i = 0; i < this.statusList.length; i++) {
             this.statusList[i].isActive = false;
           }
+        },
+        chTxt: function chTxt(ind, txt) {
+          this.statusList[ind].txt = txt;
         } } };exports.default = _default2;
 
     /***/},
@@ -13901,7 +13886,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var slFilter = function slFilter() {return __webpack_require__.e(/*! import() | components/sl-filter/sl-filter */ "components/sl-filter/sl-filter").then(__webpack_require__.bind(null, /*! @/components/sl-filter/sl-filter.vue */ "../../../../../../Users/intro/ysb_er/components/sl-filter/sl-filter.vue"));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var slFilter = function slFilter() {return __webpack_require__.e(/*! import() | components/sl-filter/sl-filter */ "components/sl-filter/sl-filter").then(__webpack_require__.bind(null, /*! @/components/sl-filter/sl-filter.vue */ "../../../../../../Users/intro/ysb_er/components/sl-filter/sl-filter.vue"));};var nList = function nList() {return __webpack_require__.e(/*! import() | components/orderList */ "components/orderList").then(__webpack_require__.bind(null, /*! @/components/orderList.vue */ "../../../../../../Users/intro/ysb_er/components/orderList.vue"));};var uniLoadMore = function uniLoadMore() {return __webpack_require__.e(/*! import() | components/uni-load-more */ "components/uni-load-more").then(__webpack_require__.bind(null, /*! @/components/uni-load-more.vue */ "../../../../../../Users/intro/ysb_er/components/uni-load-more.vue"));};var _default =
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -13911,12 +13906,22 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 {
   components: {
-    slFilter: slFilter },
+    slFilter: slFilter,
+    nList: nList,
+    uniLoadMore: uniLoadMore },
 
   data: function data() {
     return {
       themeColor: '',
       filterResult: '',
+      goUrl: '',
+      bgShow: false, // 背景显示参数
+      loadingType: 2,
+      loadingText: {
+        contentdown: '上拉显示更多',
+        contentrefresh: '正在加载...',
+        contentnomore: '没有更多数据了' },
+
       menuList: [{
         'title': '默认',
         'detailTitle': '请选择订单的状态',
@@ -13924,35 +13929,43 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         'key': 'status',
         'detailList': [{
           'title': '默认',
-          'value': [2, 3, 4] },
+          'value': [2, 3, 4],
+          'selected': true },
 
         {
           'title': '待支付',
-          'value': 1 },
+          'value': 1,
+          'selected': false },
 
         {
           'title': '匹配中',
-          'value': 2 },
+          'value': 2,
+          'selected': false },
 
         {
           'title': '待开工',
-          'value': 3 },
+          'value': 3,
+          'selected': false },
 
         {
           'title': '工作中',
-          'value': 4 },
+          'value': 4,
+          'selected': false },
 
         {
           'title': '已完成',
-          'value': 7 },
+          'value': 7,
+          'selected': false },
 
         {
           'title': '已取消',
-          'value': -1 },
+          'value': -1,
+          'selected': false },
 
         {
           'title': '异常',
-          'value': 9 }] },
+          'value': 9,
+          'selected': false }] },
 
 
 
@@ -13964,19 +13977,23 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         'detailTitle': '选择日期',
         'detailList': [{
           'title': '今天',
-          'value': 'day' },
+          'value': 'day',
+          'selected': false },
 
         {
           'title': '近一周',
-          'value': 'week' },
+          'value': 'week',
+          'selected': false },
 
         {
           'title': '近一个月',
-          'value': 'month' },
+          'value': 'month',
+          'selected': true },
 
         {
           'title': '近一年',
-          'value': 'year' }] },
+          'value': 'year',
+          'selected': false }] },
 
 
 
@@ -13988,15 +14005,18 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         'detailTitle': '请选择类型',
         'detailList': [{
           'title': '不限',
-          'value': 0 },
+          'value': 0,
+          'selected': false },
 
         {
           'title': '小时工',
-          'value': 1 },
+          'value': 1,
+          'selected': true },
 
         {
           'title': '随时工',
-          'value': 2 }] }] };
+          'value': 2,
+          'selected': false }] }] };
 
 
 
@@ -14005,13 +14025,34 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   },
   onLoad: function onLoad() {
-
+    var loginStatus = this.checkLogin('../order/list', '');
+    if (!loginStatus) {
+      return false;
+    }
+    this.requestData();
   },
   methods: {
+    requestData: function requestData() {var _this = this;
+      uni.request({
+        url: this.apiUrl + '/v1/order/status',
+        method: 'POST',
+        data: {},
+
+
+        header: {
+          Authorization: 'Bearer ' + uni.getStorageSync("token"),
+          'Content-Type': 'application/json; charset=utf-8' },
+
+        success: function success(re) {
+          _this.dataList = re.data.data;
+        } });
+
+    },
     result: function result(val) {
-      console.log('filter_result:' + JSON.stringify(val), " at pages/order/list.vue:109");
+      console.log('filter_result:' + JSON.stringify(val), " at pages/order/list.vue:164");
       this.filterResult = JSON.stringify(val, null, 2);
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
 /***/ }),
 
@@ -14744,8 +14785,15 @@ var tha;var mInput = function mInput() {return __webpack_require__.e(/*! import(
                                  				key: 'userInfo',
                                  				data: res.data.data.userInfo,
                                  				success: () => {
-                                 					console.log('save storage success!');
+                                 					uni.setStorage({
+                                 				       key: 'token',
+                                 				       data: res.data.data.userInfo.token
+                                 			        })
                                  				}
+                                 			})
+                                 			uni.setStorage({
+                                 				key: 'token',
+                                 				data: res.data.data.userInfo.token
                                  			})
                                  			this.toMain(this.account)
                                  		} else {

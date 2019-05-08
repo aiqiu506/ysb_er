@@ -127,15 +127,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default2 =
 {
   data: function data() {
@@ -185,38 +176,20 @@ var _default2 =
       this.menuIndex = index;
       this.selectDetailList = this.menuList[index].detailList;
     },
-    itemTap: function itemTap(index, list, isMutiple, key) {
-      if (isMutiple == true) {
-        list[index].isSelected = !list[index].isSelected;
-        if (index == 0) {
-          this.resetSelected(list, key);
+    itemTap: function itemTap(index, list, key, title, mIndex) {
+      this.$emit("changeTxt", mIndex, title);
+      list[0].isSelected = false;
+      this.selectedObj[key] = list[index].value;
+      this.result = this.selectedObj;
+      for (var i = 0; i < list.length; i++) {
+        if (index == i) {
+          list[i].isSelected = true;
         } else {
-          list[0].isSelected = false;
-          if (list[index].isSelected) {
-            this.selectedObj[key].push(list[index].value);
-          } else {
-            list[index].isSelected = false;
-            var idx = this.selectedObj[key].indexOf(list[index].value);
-            this.selectedObj[key].splice(idx, 1);
-          }
-          this.result = this.selectedObj;
-        }
-      } else {
-        if (index == 0) {
-          this.resetSelected(list, key);
-        } else {
-          list[0].isSelected = false;
-          this.selectedObj[key] = list[index].value;
-          this.result = this.selectedObj;
-          for (var i = 0; i < list.length; i++) {
-            if (index == i) {
-              list[i].isSelected = true;
-            } else {
-              list[i].isSelected = false;
-            }
-          }
+          list[i].isSelected = false;
         }
       }
+
+
     },
     resetSelected: function resetSelected(list, key) {
       if (typeof this.result[key] == 'object') {
@@ -231,17 +204,6 @@ var _default2 =
           list[i].isSelected = false;
         }
       }
-    },
-    sortTap: function sortTap(index, list, key) {
-      this.result[key] = list[index].value;
-      for (var i = 0; i < list.length; i++) {
-        if (index == i) {
-          list[i].isSelected = true;
-        } else {
-          list[i].isSelected = false;
-        }
-      }
-      this.$emit("confirm", this.result);
     },
     sureClick: function sureClick() {
       this.$emit("confirm", this.result);
