@@ -29,8 +29,17 @@ export default {
 			},
 		};
 	},
-	onLoad() {
-		common.showIcon();
+	onShow() {
+		// var icon = plus.nativeObj.View.getViewById('icon');
+		// if (icon) {
+		// 	icon.show();
+		// }
+	},
+	onHide() {
+		// var icon = plus.nativeObj.View.getViewById('icon');
+		// if (icon) {
+		// 	icon.hide();
+		// }
 	}
 };
 </script>

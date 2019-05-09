@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "我的订单",
-  "usingComponents": {
-    "sl-filter": "/components/sl-filter/sl-filter",
-    "n-list": "/components/orderList",
-    "uni-load-more": "/components/uni-load-more"
-  }
-}

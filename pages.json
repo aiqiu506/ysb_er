@@ -42,9 +42,18 @@
 		{
 			"path": "pages/my/index",
 			"style": {
-				"navigationBarTitleText": "我的"
+				"navigationBarTitleText": "个人中心",
+				"app-plus": {
+					"titleNView": false
+				}
 			}
-		}, {
+		},{
+			"path": "pages/my/workpoint",
+			"style": {
+				"navigationBarTitleText": "我的工分"
+			}
+		}, 
+		{
 			"path": "pages/my/login",
 			"style": {
 				"navigationBarTitleText": "",

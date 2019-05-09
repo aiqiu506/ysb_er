@@ -2,7 +2,6 @@
 const hideIcon = function() {
 	// #ifndef APP-PLUS
 	var icon = plus.nativeObj.View.getViewById("icon");
-	console.log(icon);
 	if (icon) {
 		icon.hide();
 	}
